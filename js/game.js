@@ -13,6 +13,15 @@
             mousey = evt.pageY - canvas.offsetTop;
         }, false);
 
+        function init() {
+            canvas = document.getElementById('canvas');
+            ctx = canvas.getContext('2d');
+            canvas.height = 300;
+            canvas.width = 200;
+
+            run();
+        }
+
         function act() {
             x = mousex;
             y = mousey;
