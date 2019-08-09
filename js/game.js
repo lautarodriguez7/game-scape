@@ -8,6 +8,9 @@
         mousex = 0,
         mousey = 0;
 
+    var player = new Circle(0, 0, 5);
+    var target = new Circle(100, 100, 10);
+
         document.addEventListener('mousemove', function(evt) {
             mousex = evt.pageX - canvas.offsetLeft;
             mousey = evt.pageY - canvas.offsetTop;
