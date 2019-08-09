@@ -47,6 +47,11 @@
             requestAnimationFrame(run);
             act();
             paint(ctx);
+
+            if (player.distance(target) < 0)
+                bgColor = '#333';
+            else
+                bgColor = '#000'
         }
 
         function act() {
@@ -80,7 +85,7 @@
             ctx.stroke();
 
         }
-        
+
         window.requestAnimationFrame=(function(){
             return window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
