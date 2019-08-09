@@ -1,6 +1,11 @@
 (function() {
     'use strict'
-    var mousex = 0,
+    window.addEventListener('load', init, false);
+    var canvas = null,
+        ctx = null,
+        x = 0,
+        y = 0,
+        mousex = 0,
         mousey = 0;
 
         document.addEventListener('mousemove', function(evt) {
