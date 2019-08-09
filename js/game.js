@@ -45,10 +45,16 @@
         function paint(ctx) {
             ctx.fillStyle = '#000';
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             ctx.strokeStyle='#0f0';
             ctx.beginPath();
             ctx.arc(x, y, 5, 0, Math.PI*2, true);
             ctx.strokeStyle();
         }
+        window.requestAnimationFrame=(function(){
+            return window.requestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                function (callback) {window.setTimeout(callback, 17);};
+        })();
 })();
