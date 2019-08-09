@@ -68,10 +68,19 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             ctx.strokeStyle='#0f0';
+            player.stroke(ctx);
+            ctx.strokeStyle = '#f00';
+            target.stroke(ctx);
+
+            ctx.fillStyle = '#fff';
+            ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
+
             ctx.beginPath();
             ctx.arc(x, y, 5, 0, Math.PI*2, true);
             ctx.stroke();
+
         }
+        
         window.requestAnimationFrame=(function(){
             return window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
