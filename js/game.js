@@ -22,6 +22,18 @@
             run();
         }
 
+        function Circle (x, y, radius) {
+            this.x = (x == null) ?0 : x;
+            this.y = (y == null) ?0 : y;
+            this.radius = (radius == null) ?0 : radius;
+        }
+
+        Circle.prototype.stroke = function(ctx) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+            ctx.stroke();
+        }
+
         function run() {
             requestAnimationFrame(run);
             act();
@@ -49,7 +61,7 @@
             ctx.strokeStyle='#0f0';
             ctx.beginPath();
             ctx.arc(x, y, 5, 0, Math.PI*2, true);
-            ctx.strokeStyle();
+            ctx.stroke();
         }
         window.requestAnimationFrame=(function(){
             return window.requestAnimationFrame ||
