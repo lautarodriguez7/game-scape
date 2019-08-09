@@ -28,17 +28,22 @@
             paint(ctx);
 
         function act() {
-            x = mousex;
-            y = mousey;
+            player.x = mousex;
+            player.y = mousey;
 
-            if (x < 0) 
-                x = 0;
-            if (x > canvas.width)
-                x = canvas.width;
-            if (y < 0)
-                y = 0;
-            if (y > canvas.height)
-                y = canvas.height;
+            if (player.x < 0) 
+                player.x = 0;
+            if (player.x > canvas.width)
+                player.x = canvas.width;
+            if (player.y < 0)
+                player.y = 0;
+            if (player.y > canvas.height)
+                player.y = canvas.height;
+
+            if (player.distance(target) < 0)
+                bgColor = '#333';
+            else
+                bgColor = '#000';
         }
 
         function paint(ctx) {
