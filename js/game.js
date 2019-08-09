@@ -81,6 +81,9 @@
             ctx.fillStyle = '#fff';
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
 
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
             ctx.beginPath();
             ctx.arc(x, y, 5, 0, Math.PI*2, true);
             ctx.stroke();
