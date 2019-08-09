@@ -57,7 +57,6 @@
 
             ctx.fillStyle = '#fff';
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
-
         }
 
         document.addEventListener('mousemove', function(evt) {
