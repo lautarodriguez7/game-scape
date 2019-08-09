@@ -22,6 +22,12 @@
             run();
         }
 
+        function run() {
+            requestAnimationFrame(run);
+            act();
+            paint(ctx);
+        }
+
         function act() {
             x = mousex;
             y = mousey;
