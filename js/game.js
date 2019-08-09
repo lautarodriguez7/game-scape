@@ -42,9 +42,10 @@
                 y = canvas.height;
         }
 
-        function paint() {
-            ctx.art(centerX, centerY, radius, startAngle, endAngle, clockwise);
+        function paint(ctx) {
+            ctx.fillStyle = '#000';
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
             ctx.strokeStyle='#0f0';
             ctx.beginPath();
             ctx.arc(x, y, 5, 0, Math.PI*2, true);
