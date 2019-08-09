@@ -26,14 +26,20 @@
             this.x = (x == null) ?0 : x;
             this.y = (y == null) ?0 : y;
             this.radius = (radius == null) ?0 : radius;
-        }
 
-        Circle.prototype.stroke = function(ctx) {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
-            ctx.stroke();
+            Circle.prototype.stroke = function(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+                ctx.stroke();
+            }
+            Circle.prototype.distance = function(circle) {
+                if (circle != null) {
+                    var dx = this.x - circle.x;
+                    var dy = this.y - circle.y;
+                    return (Math.sqrt(dx * dx + dy * dy)-(this.radius + circle.radius));
+                }
+            }
         }
-
         function run() {
             requestAnimationFrame(run);
             act();
