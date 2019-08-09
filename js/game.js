@@ -4,6 +4,7 @@
     var canvas = null,
         ctx = null,
         x = 0,
+        bgColor = '#000',
         y = 0,
         mousex = 0,
         mousey = 0;
