@@ -41,12 +41,18 @@
                 player.y = 0;
             if (player.y > canvas.height)
                 player.y = canvas.height;
-
-            if (player.distance(target) < 0)
+            if (lastPress == 1) {
                 bgColor = '#333';
+                if (player.distance(target) < 0) {
+                    score++;
+                    target.x = random(canvas.width/10 - 1)* 10 + target.radius;
+                    target.y = random(canvas.height/10 - 1)* 10 + target.radius;
+                }
+            }
             else
                 bgColor = '#000';
         }
+            
 
         function paint(ctx) {
             ctx.fillStyle = bgColor;
