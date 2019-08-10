@@ -81,6 +81,12 @@
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
             ctx.fillText('Score: ' +score, 0, 20);
             lastPress = null;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#fff';
+            ctx.textAlign = 'center';
+            ctx.font = '20px arial';
+            ctx.fillText(counter, 150, 100);
         }
 
         function enabledInputs(){
