@@ -68,6 +68,8 @@
 
             ctx.fillStyle = '#fff';
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
+            ctx.fillText('Score: ' +score, 0, 20);
+            lastPress = null;
         }
 
         document.addEventListener('mousemove', function(evt) {
