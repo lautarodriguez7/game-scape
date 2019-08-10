@@ -23,6 +23,9 @@
             run();
         }
 
+        function random (max) {
+            return ~~(Math.random()*max);
+        }
         
         function run() {
             requestAnimationFrame(run);
