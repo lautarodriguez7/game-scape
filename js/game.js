@@ -87,6 +87,7 @@
             ctx.textAlign = 'center';
             ctx.font = '20px arial';
             ctx.fillText(counter, 150, 100);
+            ctx.fillText(counter.toFixed(1),150,100);
         }
 
         function enabledInputs(){
