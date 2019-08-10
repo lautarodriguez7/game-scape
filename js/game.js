@@ -65,6 +65,10 @@
             mousex = evt.pageX - canvas.offsetLeft;
             mousey = evt.pageY - canvas.offsetTop;
         }, false);
+
+        document.addEventListener('mousedown', function(evt) {
+            lastPress = evt.which;
+        }, false);
         
         function Circle (x, y, radius) {
             this.x = (x == null) ?0 : x;
