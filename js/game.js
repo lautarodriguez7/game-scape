@@ -3,12 +3,10 @@
     window.addEventListener('load', init, false);
     var canvas = null,
         ctx = null,
-        x = 0,
+        lastPress = null,
         bgColor = '#000',
-        y = 0,
         mousex = 0,
         mousey = 0,
-        lastPress = null,
         score = 0;
 
     var player = new Circle(0, 0, 5);
@@ -24,24 +22,15 @@
             run();
         }
 
-        function enableInputs(){
-            document.addEventListener('mousemove',function(evt){
-                mousex=evt.pageX-canvas.offsetLeft;
-                mousey=evt.pageY-canvas.offsetTop;
-            },false);
-            canvas.addEventListener('mousedown',function(evt){
-                lastPress=evt.which;
-            },false);
-        }
-
         function random (max) {
             return ~~(Math.random()*max);
         }
-        
+
         function run() {
             requestAnimationFrame(run);
             act();
             paint(ctx);
+        }
 
         function act() {
             player.x = mousex;
@@ -66,16 +55,15 @@
             else
                 bgColor = '#000';
         }
-            
 
         function paint(ctx) {
             ctx.fillStyle = bgColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.strokeStyle='#0f0';
-            player.stroke(ctx);
             ctx.strokeStyle = '#f00';
             target.stroke(ctx);
+            ctx.strokeStyle='#0f0';
+            player.stroke(ctx);
 
             ctx.fillStyle = '#fff';
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
@@ -83,14 +71,24 @@
             lastPress = null;
         }
 
-        document.addEventListener('mousemove', function(evt) {
+        function enableInputs(){
+            document.addEventListener('mousemove',function(evt){
+                mousex=evt.pageX-canvas.offsetLeft;
+                mousey=evt.pageY-canvas.offsetTop;
+            },false);
+            canvas.addEventListener('mousedown',function(evt){
+                lastPress=evt.which;
+            },false);
+        }
+
+        /*document.addEventListener('mousemove', function(evt) {
             mousex = evt.pageX - canvas.offsetLeft;
             mousey = evt.pageY - canvas.offsetTop;
         }, false);
 
         document.addEventListener('mousedown', function(evt) {
             lastPress = evt.which;
-        }, false);
+        }, false);*/
         
         function Circle (x, y, radius) {
             this.x = (x == null) ?0 : x;
@@ -116,5 +114,5 @@
                 window.webkitRequestAnimationFrame ||
                 window.mozRequestAnimationFrame ||
                 function (callback) {window.setTimeout(callback, 17);
-        })();
+    })();
 })();
