@@ -7,7 +7,9 @@
         bgColor = '#000',
         mousex = 0,
         mousey = 0,
-        score = 0;
+        score = 0,
+        counter = 0,
+        lastUpdate = 0;
     var player = new Circle(0, 0, 5);
     var target = new Circle(100, 100, 10);
 
@@ -70,7 +72,7 @@
             lastPress = null;
         }
 
-        function enableInputs(){
+        function enabledInputs(){
             document.addEventListener('mousemove',function(evt) {
                 mousex=evt.pageX-canvas.offsetLeft;
                 mousey=evt.pageY-canvas.offsetTop;
