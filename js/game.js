@@ -7,7 +7,9 @@
         bgColor = '#000',
         y = 0,
         mousex = 0,
-        mousey = 0;
+        mousey = 0,
+        lastPress = null,
+        score = 0;
 
     var player = new Circle(0, 0, 5);
     var target = new Circle(100, 100, 10);
