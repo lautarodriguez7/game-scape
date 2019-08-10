@@ -20,6 +20,7 @@
             canvas.height = 300;
             canvas.width = 200;
 
+            enabledInputs();
             run();
         }
 
@@ -104,6 +105,6 @@
             return window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
                 window.mozRequestAnimationFrame ||
-                function (callback) {window.setTimeout(callback, 17);};
+                function (callback) {window.setTimeout(callback, 17);
         })();
 })();
