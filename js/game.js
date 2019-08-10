@@ -8,7 +8,6 @@
         mousex = 0,
         mousey = 0,
         score = 0;
-
     var player = new Circle(0, 0, 5);
     var target = new Circle(100, 100, 10);
 
@@ -72,23 +71,14 @@
         }
 
         function enableInputs(){
-            document.addEventListener('mousemove',function(evt){
+            document.addEventListener('mousemove',function(evt) {
                 mousex=evt.pageX-canvas.offsetLeft;
                 mousey=evt.pageY-canvas.offsetTop;
             },false);
-            canvas.addEventListener('mousedown',function(evt){
+            canvas.addEventListener('mousedown',function(evt) {
                 lastPress=evt.which;
             },false);
         }
-
-        /*document.addEventListener('mousemove', function(evt) {
-            mousex = evt.pageX - canvas.offsetLeft;
-            mousey = evt.pageY - canvas.offsetTop;
-        }, false);
-
-        document.addEventListener('mousedown', function(evt) {
-            lastPress = evt.which;
-        }, false);*/
         
         function Circle (x, y, radius) {
             this.x = (x == null) ?0 : x;
@@ -113,6 +103,6 @@
             return window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
                 window.mozRequestAnimationFrame ||
-                function (callback) {window.setTimeout(callback, 17);
+                function (callback) {window.setTimeout(callback, 17);};
     })();
 })();
