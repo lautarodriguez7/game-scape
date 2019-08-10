@@ -33,6 +33,10 @@
             paint(ctx);
         }
 
+        function act(deltaTime) {
+            counter += deltaTime;
+        }
+
         function act() {
             var now = Date.now();
             var deltaTime = (now - lastUpdate) / 1000;
