@@ -10,8 +10,13 @@
         pause = true,
         gameOVer = true,
         lastUpdate = 0;
-   /* var player = new Circle(0, 0, 5);
-    var target = new Circle(100, 100, 10);*/
+    var player = new Circle(0, 0, 5);
+    var target = new Circle(100, 100, 10);
+    
+    var iSight = new Image();
+    var iTarget = new Image();
+    iSight.src = 'assets/sight.png';
+    iTarget.src = 'assets/target.png'
 
         function init() {
             canvas = document.getElementById('canvas');
