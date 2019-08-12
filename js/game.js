@@ -7,6 +7,8 @@
         mousex = 0,
         mousey = 0,
         counter = 0,
+        score = 0,
+        bgColor = '#000',
         pause = true,
         gameOVer = true,
         lastUpdate = 0;
@@ -14,8 +16,8 @@
     var target = new Circle(100, 100, 10);
     
     var iSight = new Image();
-    var iTarget = new Image();
     iSight.src = 'assets/sight.png';
+    var iTarget = new Image();
     iTarget.src = 'assets/target.png'
 
         function init() {
