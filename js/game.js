@@ -68,9 +68,9 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             ctx.strokeStyle = '#f00';
-            target.stroke(ctx);
+            target.stroke(ctx, iTarget);
             ctx.strokeStyle='#0f0';
-            player.stroke(ctx);
+            player.stroke(ctx, iSight);
 
             ctx.fillStyle = '#fff';
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10);
