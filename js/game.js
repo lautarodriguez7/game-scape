@@ -35,7 +35,23 @@
         }
 
         function act(deltaTime) {
-            counter += deltaTime;
+            if (!pause) {
+                counter -= deltaTime;
+                if (counter <= 0) {
+                    counter = 0;
+                    gameOVer = true;
+                    pause = true;
+                }
+            }
+            else if (lastPress == 1) {
+                if(gameOVer) {
+                    gameOVer = false;
+                    counter = 5;
+                }
+                else
+                    pause = false;
+                    lastPress = null;
+            }
         }
 
         function act() {
@@ -57,23 +73,8 @@
                 player.y = 0;
             if (player.y > canvas.height)
                 player.y = canvas.height;
-            if (lastPress == 1) {
-                if(gameOVer) {
-                    gameOVer = false;
-                    counter = 5;
-                }
-                else
-                    pause = false;
-                    lastPress = null;
-            }
-                if (!pause) {
-                    counter -= deltaTime;
-                    if (counter <= 0) {
-                        counter = 0;
-                        gameOVer = true;
-                        pause = true;
-                    }
-                }
+            
+                
                 if (pause) {
                     ctx.font = '10px arial';
                     if (gameOVer) 
