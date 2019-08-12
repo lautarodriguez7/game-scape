@@ -84,7 +84,7 @@
             if (pause) {
                 ctx.fillText('Score: 0.0', 250, 10);
                 if (counter <- 1)
-                    ctx.fillText('CLICK TO START', 100, 120);
+                    ctx.fillText('CLICK TO START', 100, 120); 
                 ctx.font = '10px arial';
                 if (gameOVer)
                     ctx.fillText('Click to reset', 150, 120);
