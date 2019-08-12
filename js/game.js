@@ -109,6 +109,10 @@
         }
 
         function enabledInputs(){
+            document.addEventListener('mousemove', function(evt) {
+                mousex = evt.pageX - canvas.offsetLeft;
+                mousey = evt.pageY - canvas.offsetTop;
+            }, false);
             canvas.addEventListener('mousedown',function(evt) {
                 lastPress=evt.which;
             },false);
