@@ -8,7 +8,7 @@
         mousey = 0,
         counter = 0,
         pause = true,
-        gameOVer = true;
+        gameOVer = true,
         lastUpdate = 0;
    /* var player = new Circle(0, 0, 5);
     var target = new Circle(100, 100, 10);*/
@@ -38,7 +38,6 @@
             if (!pause) {
                 counter -= deltaTime;
                 if (counter <= 0) {
-                    counter = 0;
                     gameOVer = true;
                     pause = true;
                 }
@@ -46,11 +45,10 @@
             else if (lastPress == 1) {
                 if(gameOVer) {
                     gameOVer = false;
-                    counter = 5;
+                    counter = 15;
                 }
                 else
                     pause = false;
-                    lastPress = null;
             }
         }
 
@@ -58,7 +56,7 @@
             ctx.fillStyle = '#fff';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            /*ctx.strokeStyle = '#f00';
+            ctx.strokeStyle = '#f00';
             target.stroke(ctx);
             ctx.strokeStyle='#0f0';
             player.stroke(ctx);
@@ -66,7 +64,7 @@
             ctx.fillStyle = '#fff';
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
             ctx.fillText('Score: ' +score, 0, 20);
-            lastPress = null; */
+            lastPress = null; 
 
             //ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#fff';
@@ -88,7 +86,7 @@
             },false);
         }
         
-      /*  function Circle (x, y, radius) {
+        function Circle (x, y, radius) {
             this.x = (x == null) ?0 : x;
             this.y = (y == null) ?0 : y;
             this.radius = (radius == null) ?0 : radius;
@@ -104,7 +102,7 @@
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
                 ctx.stroke();
-            } */
+            }   
         
 
         window.requestAnimationFrame=(function(){
