@@ -88,7 +88,7 @@
             },false);
         }
         
-        function Circle (x, y, radius) {
+      /*  function Circle (x, y, radius) {
             this.x = (x == null) ?0 : x;
             this.y = (y == null) ?0 : y;
             this.radius = (radius == null) ?0 : radius;
@@ -104,7 +104,7 @@
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
                 ctx.stroke();
-            }
+            } */
         
 
         window.requestAnimationFrame=(function(){
