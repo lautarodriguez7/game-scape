@@ -41,7 +41,6 @@
                     gameOVer = true;
                     pause = true;
                 }
-            }
             else if (lastPress == 1) {
                 if(gameOVer) {
                     gameOVer = false;
@@ -51,6 +50,7 @@
                     pause = false;
             }
         }
+    }
 
         function paint(ctx) {
             ctx.fillStyle = '#fff';
