@@ -4,16 +4,14 @@
     var canvas = null,
         ctx = null,
         lastPress = null,
-        bgColor = '#000',
         mousex = 0,
         mousey = 0,
-        score = 0,
         counter = 0,
         pause = true,
         gameOVer = true;
         lastUpdate = 0;
-    var player = new Circle(0, 0, 5);
-    var target = new Circle(100, 100, 10);
+   /* var player = new Circle(0, 0, 5);
+    var target = new Circle(100, 100, 10);*/
 
         function init() {
             canvas = document.getElementById('canvas');
