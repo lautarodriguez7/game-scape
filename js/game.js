@@ -129,20 +129,21 @@
                     var dy = this.y - circle.y;
                     return (Math.sqrt(dx * dx + dy * dy)-(this.radius + circle.radius));
                 }
-                
+            }
+
+            Circle.prototype.stroke = function(ctx) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+                ctx.stroke();
+            }   
+
+                        
             circle.prototype.drawImage = function (ctx, img) {
                 if (img.width)
                     ctx.drawImage(img, this.x - this.radius, this.y - this.radius);
                 else
                     this.stroke(ctx);
             }
-            }
-            Circle.prototype.stroke = function(ctx) {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
-                ctx.stroke();
-            }   
-        
 
         window.requestAnimationFrame=(function(){
             return window.requestAnimationFrame ||
