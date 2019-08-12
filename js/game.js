@@ -25,6 +25,13 @@
 
         function run() {
             requestAnimationFrame(run);
+            var now = Date.now();
+            var deltaTime = (now - lastUpdate) / 1000;
+            if (deltaTime > 1) deltaTime = 0;
+            lastUpdate = now;
+
+            act(deltaTime);
+            paint(ctx);
         }
 
         function act(deltaTime) {
