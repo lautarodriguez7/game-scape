@@ -46,6 +46,18 @@
         }
 
         function act(deltaTime) {
+            player.x=mousex;
+            player.y=mousey;
+
+            if(player.x<0)
+                player.x=0;
+            if(player.x>canvas.width)
+                player.x=canvas.width;
+            if(player.y<0)
+                player.y=0;
+            if(player.y>canvas.height)
+                player.y=canvas.height;
+
             counter -= deltaTime;
             if (!pause) {
                 if (lastPress == 1) {
@@ -58,16 +70,19 @@
                 }
                 else 
                     bgColor = '#000';
-                    if (counter < 1) {
+
+                if (counter <= 0) {
                         pause = true;
-                    }
+                }
+            }  
             else if (lastPress == 1 && counter <- 1) {
                     gameOVer = false;
                     counter = 15;
                     score = 0;
             }
+            lastPress = null;
         }
-    }
+    
 
         function paint(ctx) {
             ctx.fillStyle = '#fff';
