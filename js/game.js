@@ -75,6 +75,13 @@
                         pause = true;
                     }
                 }
+                if (pause) {
+                    ctx.font = '10px arial';
+                    if (gameOVer) 
+                        ctx.fillText('Click to reset', 150, 120);
+                    else
+                        ctx.fillText('Click to start', 150, 120);
+                }
                 bgColor = '#333';
                 if (player.distance(target) < 0) {
                     score++;
