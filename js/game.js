@@ -53,7 +53,7 @@
             else if (lastPress == 1 && counter <- 1) {
                     gameOVer = false;
                     counter = 15;
-                    pause = false;
+                    score = 0;
             }
         }
     }
@@ -73,23 +73,23 @@
             lastPress = null; 
 
             //ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#fff';
+            /*ctx.fillStyle = '#fff';
             ctx.textAlign = 'center';
             ctx.font = '20px arial';
-            ctx.fillText(counter.toFixed(1),150,100);
+            ctx.fillText(counter.toFixed(1),150,100);*/
             if (counter > 0)
                 ctx.fillText('Time: ' +counter.toFixed(1), 250, 10);
             else
-                ctx.fillText('Time: ', 120, 100);
+                ctx.fillText('Time: 0.0', 250, 10);
             if (pause) {
-                ctx.fillText('Score: 0.0', 250, 10);
+                ctx.fillText('Score: ' +score,  120, 100);
                 if (counter <- 1)
                     ctx.fillText('CLICK TO START', 100, 120); 
-                ctx.font = '10px arial';
+                /*ctx.font = '10px arial';
                 if (gameOVer)
                     ctx.fillText('Click to reset', 150, 120);
                 else
-                    ctx.fillText('Click to start', 150, 120);
+                    ctx.fillText('Click to start', 150, 120);*/
             }
         }
 
