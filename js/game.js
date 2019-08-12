@@ -54,45 +54,6 @@
             }
         }
 
-        function act() {
-            var now = Date.now();
-            var deltaTime = (now - lastUpdate) / 1000;
-            if (deltaTime > 1) deltaTime = 0;
-            lastUpdate = now;
-
-            act(deltaTime);
-
-            player.x = mousex;
-            player.y = mousey;
-
-            if (player.x < 0) 
-                player.x = 0;
-            if (player.x > canvas.width)
-                player.x = canvas.width;
-            if (player.y < 0)
-                player.y = 0;
-            if (player.y > canvas.height)
-                player.y = canvas.height;
-            
-                
-                if (pause) {
-                    ctx.font = '10px arial';
-                    if (gameOVer) 
-                        ctx.fillText('Click to reset', 150, 120);
-                    else
-                        ctx.fillText('Click to start', 150, 120);
-                }
-                bgColor = '#333';
-                if (player.distance(target) < 0) {
-                    score++;
-                    target.x = random(canvas.width/10 - 1)* 10 + target.radius;
-                    target.y = random(canvas.height/10 - 1)* 10 + target.radius;
-                }
-            }
-            else
-                bgColor = '#000';
-        }
-
         function paint(ctx) {
             ctx.fillStyle = bgColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
