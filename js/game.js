@@ -68,8 +68,8 @@
             player.stroke(ctx);
 
             ctx.fillStyle = '#fff';
-            ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
-            ctx.fillText('Score: ' +score, 0, 20);
+            ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10);
+            ctx.fillText('Score: ' +score, 0, 10);
             lastPress = null; 
 
             //ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -77,7 +77,14 @@
             ctx.textAlign = 'center';
             ctx.font = '20px arial';
             ctx.fillText(counter.toFixed(1),150,100);
+            if (counter > 0)
+                ctx.fillText('Time: ' +counter.toFixed(1), 250, 10);
+            else
+                ctx.fillText('Time: ', 120, 100);
             if (pause) {
+                ctx.fillText('Score: 0.0', 250, 10);
+                if (counter <- 1)
+                    ctx.fillText('CLICK TO START', 100, 120);
                 ctx.font = '10px arial';
                 if (gameOVer)
                     ctx.fillText('Click to reset', 150, 120);
