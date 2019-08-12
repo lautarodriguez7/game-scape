@@ -115,6 +115,13 @@
                     var dy = this.y - circle.y;
                     return (Math.sqrt(dx * dx + dy * dy)-(this.radius + circle.radius));
                 }
+                
+            circle.prototype.drawImage = function (ctx, img) {
+                if (img.width)
+                    ctx.drawImage(img, this.x - this.radius, this.y - this.radius);
+                else
+                    this.stroke(ctx);
+            }
             }
             Circle.prototype.stroke = function(ctx) {
                 ctx.beginPath();
