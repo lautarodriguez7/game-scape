@@ -55,10 +55,10 @@
         }
 
         function paint(ctx) {
-            ctx.fillStyle = bgColor;
+            ctx.fillStyle = '#fff';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.strokeStyle = '#f00';
+            /*ctx.strokeStyle = '#f00';
             target.stroke(ctx);
             ctx.strokeStyle='#0f0';
             player.stroke(ctx);
@@ -66,16 +66,22 @@
             ctx.fillStyle = '#fff';
             ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10, 10);
             ctx.fillText('Score: ' +score, 0, 20);
-            lastPress = null;
+            lastPress = null; */
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            //ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#fff';
             ctx.textAlign = 'center';
             ctx.font = '20px arial';
-            ctx.fillText(counter, 150, 100);
             ctx.fillText(counter.toFixed(1),150,100);
+            if (pause) {
+                ctx.font = '10px arial';
+                if (gameOVer)
+                    ctx.fillText('Click to reset', 150, 120);
+                else
+                    ctx.fillText('Click to start', 150, 120);
+            }
         }
-
+         
         function enabledInputs(){
             document.addEventListener('mousemove',function(evt) {
                 mousex=evt.pageX-canvas.offsetLeft;
