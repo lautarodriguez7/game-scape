@@ -30,6 +30,10 @@
             run();
         }
 
+        function random(max) {
+            return ~~(Math.random()*Math);
+        }
+
         function run() {
             requestAnimationFrame(run);
             var now = Date.now();
