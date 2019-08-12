@@ -35,18 +35,24 @@
         }
 
         function act(deltaTime) {
+            counter -= deltaTime;
             if (!pause) {
-                counter -= deltaTime;
-                if (counter <= 0) {
-                    gameOVer = true;
-                    pause = true;
+                if (lastPress == 1) {
+                    bgColor = '#333';
+                    if (player.distance(target) < 0){
+                        score++;
+                        target.x = random(canvas.width / 10 - 1) * 10 + target.radius;
+                        target.y = random(canvas.height / 10 - 1) * 10 + target.radius;
+                    }
                 }
-            else if (lastPress == 1) {
-                if(gameOVer) {
+                else 
+                    bgColor = '#000';
+                    if (counter < 1) {
+                        pause = true;
+                    }
+            else if (lastPress == 1 && counter <- 1) {
                     gameOVer = false;
                     counter = 15;
-                }
-                else
                     pause = false;
             }
         }
