@@ -90,6 +90,16 @@
                     score = 0;
             }
             lastPress = null;
+
+            // Generate new bomb
+            eTimer -= deltaTime;
+            if (eTimer < 0) {
+                var bomb = new circle(0, 0, 10);
+                bomb.timer = 2;
+                bombs.push(bomb);
+                eTimer = 0.5 + random(2.5);
+            } 
+            
         }
     
 
