@@ -29,7 +29,7 @@
             canvas.width = 200;
             canvas.addEventListener('mousedown', function(evt){
                 pause =! pause;
-            }, flase);
+            }, false);
             //enabledInputs();
             run();
         }
@@ -99,8 +99,27 @@
                 bombs.push(bomb);
                 eTimer = 0.5 + random(2.5);
             } 
-            
+            // Bombs
+            for (var i=0, l=bombs.length; i < l; i++) {
+                bombs[i].timer -= deltaTime;
+                var angle = bombs[i].getAngle(player);
+                bombs[i].move(angle, speed * deltaTime);
+            }
+            if (bombs[i].timer < 0) {
+                bombs[i].radius *= 2; //enlarge the bomb when it explodes
+                if (bombs[i].distance(player) < 0) {
+                    gameOVer = true;
+                    pause = true;
+                }
+            }
         }
+        if (bombs[i].timer < 0) {
+            score++; //bomb eliminated and score++;
+            bombs.splice(i--, 1);
+            l--;
+            continue;
+        }
+
     
 
         function paint(ctx) {
