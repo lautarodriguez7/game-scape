@@ -155,6 +155,7 @@
 
             canvas.addEventListener('mousedown',function(evt) {
                 pause = !pause;
+                lastKey = 0;
             },false);
         }
         
