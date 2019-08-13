@@ -151,6 +151,11 @@
                 }
             }
 
+            circle.prototype.getAngle = function (circle) {
+                if (circle != null)
+                    return (Math.atan2(circle.y - this.y, circl.x - this.x));
+            }
+
         window.requestAnimationFrame=(function(){
             return window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
