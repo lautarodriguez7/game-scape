@@ -106,6 +106,12 @@
                 if (counter <- 1)
                     ctx.fillText('CLICK TO START', 100, 120); 
             }
+
+            ctx.fillText('Angle: ' +(player.getAngle(target) * (180/Math.PI)).toFixed(1), 10, 20);
+            if (target.distance(player) > 0) {
+                var angle = target.getAngle(player);
+                target.move(angle, deltaTime * 100);
+            }
         }
 
         function enabledInputs(){
