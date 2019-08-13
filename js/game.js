@@ -177,7 +177,12 @@
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
             ctx.stroke();
         }   
-                    
+        
+        Circle.prototype.fill=function(ctx){
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
+            ctx.fill();
+        }            
         /*circle.prototype.drawImage = function (ctx, img) {
             if (img.width)
                 ctx.drawImage(img, this.x - this.radius, this.y - this.radius);
