@@ -27,10 +27,8 @@
             ctx = canvas.getContext('2d');
             canvas.height = 300;
             canvas.width = 200;
-            canvas.addEventListener('mousedown', function(evt){
-                pause =! pause;
-            }, false);
-            //enabledInputs();
+
+            enabledInputs();
             run();
         }
 
@@ -94,8 +92,8 @@
             // Generate new bomb
             eTimer -= deltaTime;
             if (eTimer < 0) {
-                var bomb = new circle(0, 0, 10);
-                bomb.timer = 2;
+                var bomb = new circle(random(2) *canvas.width, random(2) * canvas.height, 10);
+                bomb.timer = 1.5 + random(2.5);
                 bombs.push(bomb);
                 eTimer = 0.5 + random(2.5);
             } 
