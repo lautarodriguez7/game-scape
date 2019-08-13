@@ -159,6 +159,16 @@
             },false);
         }
         
+        function Particle(x,y,radius,life,speed,angle,color) {
+            this.x=(x==null)?0:x;
+            this.y=(y==null)?0:y;
+            this.radius=(radius==null)?1:radius;
+            this.life=(life==null)?0:life;
+            this.speed=(speed==null)?0:speed;
+            this.angle=(angle==null)?0:angle;
+            this.color=(color==null)?'#fff':color;
+        }
+        
         function Circle (x, y, radius) {
             this.x = (x == null) ?0 : x;
             this.y = (y == null) ?0 : y;
