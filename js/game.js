@@ -86,7 +86,7 @@
                 l--;
                 continue;
             }
-            
+
             bombs[i].timer-=deltaTime;
             var angle=bombs[i].getAngle(player);
             bombs[i].move(angle,bombs[i].speed*deltaTime);
@@ -106,37 +106,45 @@
     
 
         function paint(ctx) {
-            ctx.fillStyle = bgColor;
+            ctx.fillStyle = '#000';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.strokeStyle = '#f00';
-            target.stroke(ctx, iTarget);
-            ctx.strokeStyle='#0f0';
-            player.stroke(ctx, iSight);
-
-            ctx.fillStyle = '#fff';
-            ctx.fillText('Distance: ' +player.distance(target).toFixed(1), 10);
-            ctx.fillText('Angle: ' +(player.getAngle(target) * (180/Math.PI)).toFixed(1), 10, 20);
-            //ctx.fillText('Score: ' +score, 0, 10);
-
-            if (counter > 0)
-                ctx.fillText('Time: ' +counter.toFixed(1), 250, 10);
-            else
-                ctx.fillText('Time: 0.0', 250, 10);
-            if (pause) {
-                ctx.fillText('Score: ' +score,  120, 100);
-                if (counter <- 1)
-                    ctx.fillText('CLICK TO START', 100, 120); 
-            }
-
             for (var i = 0, l = bombs.length; i < l; i++) {
-                if (bombs[i].timer < 0) 
+                if (bombs[i].timer < 0) {
                     ctx.strokeStyle = '#fff';
-                else
-                    ctx.strokeStyle = '#f00';
-                bombs[i].stroke(ctx);
+                    bombs[i].fill(ctx);
+                }
+                else {
+                    if (bombs[i].timer < 1 && ~~(bombs[i].timer*10)%2==0)
+                        ctx.strokeStyle = '#fff';
+                    else     
+                        ctx.strokeStyle = '#f00';
+                    bombs[i].stroke(ctx);
                 }
             }
+            ctx.strokeStyle = '0f0';
+            player.stroke(ctx);
+
+            /*ctx.strokeStyle = '#f00';
+            target.stroke(ctx, iTarget);
+            ctx.strokeStyle='#0f0';
+            player.stroke(ctx, iSight);*/
+
+            ctx.fillStyle = '#fff';
+            //ctx.fillText('Distance: ' +player.distance(target).toFixed(1), 10);
+            //ctx.fillText('Angle: ' +(player.getAngle(target) * (180/Math.PI)).toFixed(1), 10, 20);
+            ctx.fillText('Score: ' +score, 0, 10);
+
+            if (pause) {
+                ctx.textAlign = 'center';
+            if(gameOVer)
+                ctx.fillText('GAME OVER ',150, 100);
+            else
+                ctx.fillText('PAUSE', 150, 100); 
+            ctx.textAlign = 'left';
+            }
+        }
+           
 
         function enabledInputs(){
             document.addEventListener('mousemove', function(evt) {
