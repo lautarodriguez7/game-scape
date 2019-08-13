@@ -56,6 +56,7 @@
         }
 
         function act(deltaTime) {
+            if(!pause) {
             player.x=mousex;
             player.y=mousey;
 
@@ -67,64 +68,40 @@
                 player.y=0;
             if(player.y>canvas.height)
                 player.y=canvas.height;
-
-            if (target.distance(player) > 0) {
-                var angle = target.getAngle(player);
-                target.move(angle, deltaTime * 100);
-            }
-        
-            counter -= deltaTime;
-            if (!pause) {
-                if (lastPress == 1) {
-                    bgColor = '#333';
-                    if (player.distance(target) < 0){
-                        score++;
-                        target.x = random(canvas.width / 10 - 1) * 10 + target.radius;
-                        target.y = random(canvas.height / 10 - 1) * 10 + target.radius;
-                    }
-                }
-                else 
-                    bgColor = '#000';
-
-                if (counter <= 0) {
-                        pause = true;
-                }
-            }  
-            else if (lastPress == 1 && counter <- 1) {
-                    gameOVer = false;
-                    counter = 15;
-                    score = 0;
-            }
-            lastPress = null;
-
+            
             // Generate new bomb
             eTimer -= deltaTime;
             if (eTimer < 0) {
                 var bomb = new circle(random(2) *canvas.width, random(2) * canvas.height, 10);
                 bomb.timer = 1.5 + random(2.5);
+                bomb.speed = 100 +(random(score))*10;
                 bombs.push(bomb);
                 eTimer = 0.5 + random(2.5);
             } 
             // Bombs
             for (var i=0, l=bombs.length; i < l; i++) {
-                bombs[i].timer -= deltaTime;
-                var angle = bombs[i].getAngle(player);
-                bombs[i].move(angle, speed * deltaTime);
+                if(bombs[i].timer < 0){
+                score++; //bomb eliminated and score++;
+                bombs.splice(i--, 1);
+                l--;
+                continue;
             }
+            
+            bombs[i].timer-=deltaTime;
+            var angle=bombs[i].getAngle(player);
+            bombs[i].move(angle,bombs[i].speed*deltaTime);
+
             if (bombs[i].timer < 0) {
                 bombs[i].radius *= 2; //enlarge the bomb when it explodes
                 if (bombs[i].distance(player) < 0) {
                     gameOVer = true;
                     pause = true;
-                }
-            }
-        }
-        if (bombs[i].timer < 0) {
-            score++; //bomb eliminated and score++;
-            bombs.splice(i--, 1);
-            l--;
-            continue;
-        }
+                    }
+               }
+           }
+       }
+   }
+
 
     
 
