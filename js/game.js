@@ -38,6 +38,7 @@
 
         function run() {
             requestAnimationFrame(run);
+
             var now = Date.now();
             var deltaTime = (now - lastUpdate) / 1000;
             if (deltaTime > 1) deltaTime = 0;
@@ -45,6 +46,13 @@
 
             act(deltaTime);
             paint(ctx);
+        }
+
+        function reset() {
+            score = 0;
+            eTimer = 0;
+            bombs.length = 0;
+            gameOVer = false;
         }
 
         function act(deltaTime) {
