@@ -119,7 +119,7 @@
                 mousex = evt.pageX - canvas.offsetLeft;
                 mousey = evt.pageY - canvas.offsetTop;
             }, false);
-            
+
             canvas.addEventListener('mousedown',function(evt) {
                 lastPress=evt.which;
             },false);
@@ -144,17 +144,17 @@
                 ctx.stroke();
             }   
                         
-            circle.prototype.drawImage = function (ctx, img) {
+            /*circle.prototype.drawImage = function (ctx, img) {
                 if (img.width)
                     ctx.drawImage(img, this.x - this.radius, this.y - this.radius);
                 else
                     this.stroke(ctx);
-            }
+            }*/
 
             circle.prototype.move = function(angle, speed) {
                 if (speed != null) {
-                    this.x = Math.cos(angle) * speed;
-                    this.y = Math.sen(angle) * speed;
+                    this.x += Math.cos(angle) * speed;
+                    this.y += Math.sen(angle) * speed;
                 }
             }
 
