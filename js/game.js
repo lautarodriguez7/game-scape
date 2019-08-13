@@ -26,7 +26,7 @@
             canvas.height = 300;
             canvas.width = 200;
 
-            enabledInputs();
+            //enabledInputs();
             run();
         }
 
@@ -58,6 +58,11 @@
             if(player.y>canvas.height)
                 player.y=canvas.height;
 
+            if (target.distance(player) > 0) {
+                var angle = target.getAngle(player);
+                target.move(angle, deltaTime * 100);
+            }
+        
             counter -= deltaTime;
             if (!pause) {
                 if (lastPress == 1) {
@@ -108,10 +113,7 @@
             }
 
             ctx.fillText('Angle: ' +(player.getAngle(target) * (180/Math.PI)).toFixed(1), 10, 20);
-            if (target.distance(player) > 0) {
-                var angle = target.getAngle(player);
-                target.move(angle, deltaTime * 100);
-            }
+            
         }
 
         function enabledInputs(){
