@@ -11,6 +11,8 @@
         bgColor = '#000',
         pause = true,
         gameOVer = true,
+        eTimer = 0,
+        bombs = [],
         lastUpdate = 0;
     var player = new Circle(0, 0, 5);
     var target = new Circle(100, 100, 10);
