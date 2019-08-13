@@ -161,39 +161,39 @@
             this.x = (x == null) ?0 : x;
             this.y = (y == null) ?0 : y;
             this.radius = (radius == null) ?0 : radius;
+            this.timer = 0;
+            this.speed = 0;
         }
-            Circle.prototype.distance = function(circle) {
-                if (circle != null) {
-                    var dx = this.x - circle.x;
-                    var dy = this.y - circle.y;
-                    return (Math.sqrt(dx * dx + dy * dy)-(this.radius + circle.radius));
-                }
+        Circle.prototype.distance = function(circle) {
+            if (circle != null) {
+                var dx = this.x - circle.x;
+                var dy = this.y - circle.y;
+                return (Math.sqrt(dx * dx + dy * dy)-(this.radius + circle.radius));
             }
+        }
 
-            Circle.prototype.stroke = function(ctx) {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
-                ctx.stroke();
-            }   
-                        
-            /*circle.prototype.drawImage = function (ctx, img) {
-                if (img.width)
-                    ctx.drawImage(img, this.x - this.radius, this.y - this.radius);
-                else
-                    this.stroke(ctx);
-            }*/
-
-            circle.prototype.move = function(angle, speed) {
-                if (speed != null) {
-                    this.x += Math.cos(angle) * speed;
-                    this.y += Math.sen(angle) * speed;
-                }
+        Circle.prototype.stroke = function(ctx) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+            ctx.stroke();
+        }   
+                    
+        /*circle.prototype.drawImage = function (ctx, img) {
+            if (img.width)
+                ctx.drawImage(img, this.x - this.radius, this.y - this.radius);
+            else
+                this.stroke(ctx);
+        }*/
+        circle.prototype.move = function(angle, speed) {
+            if (speed != null) {
+                this.x += Math.cos(angle) * speed;
+                this.y += Math.sen(angle) * speed;
             }
-
-            circle.prototype.getAngle = function (circle) {
-                if (circle != null)
-                    return (Math.atan2(circle.y - this.y, circl.x - this.x));
-            }
+        }
+        circle.prototype.getAngle = function (circle) {
+            if (circle != null)
+                return (Math.atan2(circle.y - this.y, circl.x - this.x));
+        }
 
         window.requestAnimationFrame=(function(){
             return window.requestAnimationFrame ||
