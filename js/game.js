@@ -8,6 +8,7 @@
         mousey = 0,
         counter = 0,
         score = 0,
+        lastKey = null,
         bgColor = '#000',
         pause = true,
         gameOVer = true,
