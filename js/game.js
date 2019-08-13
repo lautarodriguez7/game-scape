@@ -145,7 +145,15 @@
                 if (counter <- 1)
                     ctx.fillText('CLICK TO START', 100, 120); 
             }
-        }
+
+            for (var i = 0, l = bombs.length; i < l; i++) {
+                if (bombs[i].timer < 0) 
+                    ctx.strokeStyle = '#fff';
+                else
+                    ctx.strokeStyle = '#f00';
+                bombs[i].stroke(ctx);
+                }
+            }
 
         function enabledInputs(){
             document.addEventListener('mousemove', function(evt) {
