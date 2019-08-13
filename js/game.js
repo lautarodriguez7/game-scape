@@ -99,8 +99,9 @@
             player.stroke(ctx, iSight);
 
             ctx.fillStyle = '#fff';
-            ctx.fillText = ('Distance: ' +player.distance(target).toFixed(1), 10);
-            ctx.fillText('Score: ' +score, 0, 10);
+            ctx.fillText('Distance: ' +player.distance(target).toFixed(1), 10);
+            ctx.fillText('Angle: ' +(player.getAngle(target) * (180/Math.PI)).toFixed(1), 10, 20);
+            //ctx.fillText('Score: ' +score, 0, 10);
 
             if (counter > 0)
                 ctx.fillText('Time: ' +counter.toFixed(1), 250, 10);
@@ -111,9 +112,6 @@
                 if (counter <- 1)
                     ctx.fillText('CLICK TO START', 100, 120); 
             }
-
-            ctx.fillText('Angle: ' +(player.getAngle(target) * (180/Math.PI)).toFixed(1), 10, 20);
-            
         }
 
         function enabledInputs(){
@@ -121,6 +119,7 @@
                 mousex = evt.pageX - canvas.offsetLeft;
                 mousey = evt.pageY - canvas.offsetTop;
             }, false);
+            
             canvas.addEventListener('mousedown',function(evt) {
                 lastPress=evt.which;
             },false);
