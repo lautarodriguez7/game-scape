@@ -153,7 +153,7 @@
             }, false);
 
             canvas.addEventListener('mousedown',function(evt) {
-                lastPress=evt.which;
+                pause = !pause;
             },false);
         }
         
