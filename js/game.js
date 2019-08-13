@@ -27,7 +27,9 @@
             ctx = canvas.getContext('2d');
             canvas.height = 300;
             canvas.width = 200;
-
+            canvas.addEventListener('mousedown', function(evt){
+                pause =! pause;
+            }, flase);
             //enabledInputs();
             run();
         }
