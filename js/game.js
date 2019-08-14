@@ -1,26 +1,25 @@
 (function() {
     'use strict'
     window.addEventListener('load', init, false);
-    var canvas = null,
-        ctx = null,
-        lastPress = null,
-        mousex = 0,
-        mousey = 0,
+    ParticleSystem.prototype = [];
+    var canvas = null, 
+        ctx = null, 
+        lastPress = null, 
+        lastUpdate = 0; 
+        mousex = 0, 
+        mousey = 0, 
+        bgColor = '#000', 
         counter = 0,
         score = 0,
         lastKey = null,
-        bgColor = '#000',
         pause = true,
         gameOVer = true,
         eTimer = 0,
         bombs = [],
-        ps = new ParticleSystem(),
-        lastUpdate = 0;
-    var player = new Circle(0, 0, 5);
+        ps = new ParticleSystem(); 
+    var player = new Circle(0, 0, 5); 
     var target = new Circle(100, 100, 10);
     
-    ParticleSystem.prototype = [];
-
     var iSight = new Image();
     iSight.src = 'assets/sight.png';
     var iTarget = new Image();
@@ -37,7 +36,7 @@
         }
 
         function random(max) {
-            return ~~(Math.random()*Math);
+            return ~~(Math.random()*max);
         }
 
         function run() {
