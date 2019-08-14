@@ -18,6 +18,8 @@
     var player = new Circle(0, 0, 5);
     var target = new Circle(100, 100, 10);
     
+    ParticleSystem.prototype = [];
+
     var iSight = new Image();
     iSight.src = 'assets/sight.png';
     var iTarget = new Image();
@@ -160,6 +162,14 @@
         }
         
         function ParticleSystem() {}
+
+        ParticleSystem.prototype.fill = function (ctx) {
+            fot (var i = 0, l = this.length; i < l; i++) {
+                ctx.fillStyle = this[i].color;
+                ctx.beginPath();
+                ctx.arc(this[i].x, this[i].y, this[i].radius, 0, Math.PI*2, true);
+            }
+        }
 
         function Particle(x,y,radius,life,speed,angle,color) {
             this.x = (x == null) ?0 : x;
