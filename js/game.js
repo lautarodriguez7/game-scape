@@ -171,6 +171,20 @@
             }
         }
 
+        ParticleSystem.prototype.move = function(deltaTime) {
+            for (var i = 0, l = this.length; i < l; i++) {
+                this[i].life -= deltaTime;
+                if (this[i].life < 0) {
+                    this.splice(i--, 1);
+                    l--;
+                }
+                else {
+                    this[i].x = Math.cos(this[i].angle)* this[i].speed * deltaTime;
+                    this[i].y = Math.sin(this[i].angle)* this[i].speed * deltaTime;
+                }
+            }
+        }
+
         function Particle(x,y,radius,life,speed,angle,color) {
             this.x = (x == null) ?0 : x;
             this.y = (y == null) ?0 : y;
