@@ -14,7 +14,7 @@
         gameOVer = true,
         eTimer = 0,
         bombs = [],
-        ps = new ParticleSystem();
+        ps = new ParticleSystem(),
         lastUpdate = 0;
     var player = new Circle(0, 0, 5);
     var target = new Circle(100, 100, 10);
