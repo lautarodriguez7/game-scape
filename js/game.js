@@ -177,6 +177,35 @@
                 lastPress = evt.which;
             },false);
         }
+
+                
+        function Circle (x, y, radius) {
+            this.x = (x == null) ?0 : x;
+            this.y = (y == null) ?0 : y;
+            this.radius = (radius == null) ?0 : radius;
+            //this.timer = 0;
+            //this.speed = 0;
+        }
+        
+        Circle.prototype.distance = function(circle) {
+            if (circle != null) {
+                var dx = this.x - circle.x;
+                var dy = this.y - circle.y;
+                return (Math.sqrt(dx * dx + dy * dy)-(this.radius + circle.radius));
+            }
+        }
+
+        Circle.prototype.stroke = function(ctx) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+            ctx.stroke();
+        }   
+        
+        Circle.prototype.fill=function(ctx){
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
+            ctx.fill();
+        } 
         
         function ParticleSystem() {}
 
@@ -211,33 +240,7 @@
             this.angle = (angle == null) ?0 : angle;
             this.color = (color == null) ?'#fff' : color;
         }
-        
-        function Circle (x, y, radius) {
-            this.x = (x == null) ?0 : x;
-            this.y = (y == null) ?0 : y;
-            this.radius = (radius == null) ?0 : radius;
-            this.timer = 0;
-            this.speed = 0;
-        }
-        Circle.prototype.distance = function(circle) {
-            if (circle != null) {
-                var dx = this.x - circle.x;
-                var dy = this.y - circle.y;
-                return (Math.sqrt(dx * dx + dy * dy)-(this.radius + circle.radius));
-            }
-        }
-
-        Circle.prototype.stroke = function(ctx) {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
-            ctx.stroke();
-        }   
-        
-        Circle.prototype.fill=function(ctx){
-            ctx.beginPath();
-            ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
-            ctx.fill();
-        }            
+           
         /*circle.prototype.drawImage = function (ctx, img) {
             if (img.width)
                 ctx.drawImage(img, this.x - this.radius, this.y - this.radius);
