@@ -217,16 +217,7 @@
             this.color = (color == null) ?'#fff' : color;
         }
 
-        function ParticleSystem() {}
-
-        ParticleSystem.prototype.fill = function (ctx) {
-            for (var i = 0, l = this.length; i < l; i++) {
-                ctx.fillStyle = this[i].color;
-                ctx.beginPath();
-                ctx.arc(this[i].x, this[i].y, this[i].radius, 0, Math.PI*2, true);
-            }
-        }
-
+        function ParticleSystem() {}    
 
         ParticleSystem.prototype.move = function(deltaTime) {
             for (var i = 0, l = this.length; i < l; i++) {
@@ -241,6 +232,15 @@
                 }
             }
         }
+        
+        ParticleSystem.prototype.fill = function (ctx) {
+            for (var i = 0, l = this.length; i < l; i++) {
+                ctx.fillStyle = this[i].color;
+                ctx.beginPath();
+                ctx.arc(this[i].x, this[i].y, this[i].radius, 0, Math.PI*2, true);
+            }
+        }
+
 
        
            
