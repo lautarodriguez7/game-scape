@@ -117,7 +117,7 @@
     
 
         function paint(ctx) {
-            ctx.fillStyle = '#000';
+            ctx.fillStyle = bgColor;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             for (var i = 0, l = bombs.length; i < l; i++) {
@@ -142,6 +142,12 @@
             player.stroke(ctx, iSight);*/
 
             ps.fill(ctx);
+            ctx.fillStyle = bgColor;
+            player.stroke(ctx);
+
+            ctx.fillStyle = '#0f0';
+            ctx.fillText('Particles: ' +ps.length, 0, 20);
+            lastpress = null;
 
             ctx.fillStyle = '#fff';
             //ctx.fillText('Distance: ' +player.distance(target).toFixed(1), 10);
