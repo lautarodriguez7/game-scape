@@ -164,7 +164,7 @@
         function ParticleSystem() {}
 
         ParticleSystem.prototype.fill = function (ctx) {
-            fot (var i = 0, l = this.length; i < l; i++) {
+            for (var i = 0, l = this.length; i < l; i++) {
                 ctx.fillStyle = this[i].color;
                 ctx.beginPath();
                 ctx.arc(this[i].x, this[i].y, this[i].radius, 0, Math.PI*2, true);
