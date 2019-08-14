@@ -59,7 +59,7 @@
         }
 
         function act(deltaTime) {
-            if(!pause) {
+            //if(!pause) {
             player.x=mousex;
             player.y=mousey;
 
@@ -71,6 +71,13 @@
                 player.y=0;
             if(player.y>canvas.height)
                 player.y=canvas.height;
+            
+            if (lastPress == 1) {
+                bgColor = '#333';
+                var color = 'rgb(' +random(255)+ ',' +random(255)+ ',' +random(255)+ ')';
+                for (var i=0; i < 200; i++)
+                ps.push(new Particle(player.x, player.y, 1, 0.5 + random(500)/1000, random(100), random(360),color));
+            }
             
             // Generate new bomb
             eTimer -= deltaTime;
@@ -102,15 +109,9 @@
                     }
                }
            }
-       }
-       ps.move(deltaTime);
-
-       if (lastPress == 1) {
-           var color = 'rgb(' +random(255)+ ',' +random(255)+ ',' +random(255)+ ')';
-           for (var i=0; i < 200; i++)
-                ps.push(new Particle(player.x, player.y, 1, 0.5 + random(500)/1000, random(100), random(360),color));
-       }
-   }
+       //}
+       ps.move(deltaTime);     
+        }
 
 
     
