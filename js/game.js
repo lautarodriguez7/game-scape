@@ -159,6 +159,8 @@
             },false);
         }
         
+        function ParticleSystem() {}
+
         function Particle(x,y,radius,life,speed,angle,color) {
             this.x = (x == null) ?0 : x;
             this.y = (y == null) ?0 : y;
