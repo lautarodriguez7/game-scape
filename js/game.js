@@ -174,6 +174,7 @@
             canvas.addEventListener('mousedown',function(evt) {
                 pause = !pause;
                 lastKey = 0;
+                lastPress = evt.which;
             },false);
         }
         
