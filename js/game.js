@@ -76,7 +76,7 @@
                 bgColor = '#333';
                 var color = 'rgb(' +random(255)+ ',' +random(255)+ ',' +random(255)+ ')';
                 for (var i=0; i < 200; i++)
-                ps.push(new Particle(player.x, player.y, 1, 0.5 + random(500)/1000, random(100), random(360),color));
+                ps.push (new Particle(player.x, player.y, 1, 0.5 + random(500)/1000, random(100), random(360),color));
             }
             
             // Generate new bomb
@@ -87,7 +87,8 @@
                 bomb.speed = 100 +(random(score))*10;
                 bombs.push(bomb);
                 eTimer = 0.5 + random(2.5);
-            } 
+            }
+             
             // Bombs
             for (var i=0, l=bombs.length; i < l; i++) {
                 if(bombs[i].timer < 0){
