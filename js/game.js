@@ -134,6 +134,8 @@
             ctx.strokeStyle='#0f0';
             player.stroke(ctx, iSight);*/
 
+            ps.fill(ctx);
+
             ctx.fillStyle = '#fff';
             //ctx.fillText('Distance: ' +player.distance(target).toFixed(1), 10);
             //ctx.fillText('Angle: ' +(player.getAngle(target) * (180/Math.PI)).toFixed(1), 10, 20);
