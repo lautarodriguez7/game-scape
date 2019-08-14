@@ -240,9 +240,6 @@
                 ctx.arc(this[i].x, this[i].y, this[i].radius, 0, Math.PI*2, true);
             }
         }
-
-
-       
            
         /*circle.prototype.drawImage = function (ctx, img) {
             if (img.width)
@@ -260,7 +257,7 @@
             if (circle != null)
                 return (Math.atan2(circle.y - this.y, circl.x - this.x));
         }
-
+        
         window.requestAnimationFrame=(function(){
             return window.requestAnimationFrame ||
                 window.webkitRequestAnimationFrame ||
