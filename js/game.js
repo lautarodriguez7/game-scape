@@ -60,17 +60,17 @@
 
         function act(deltaTime) {
             //if(!pause) {
-            player.x=mousex;
-            player.y=mousey;
+            player.x = mousex;
+            player.y = mousey;
 
-            if(player.x<0)
-                player.x=0;
-            if(player.x>canvas.width)
-                player.x=canvas.width;
-            if(player.y<0)
-                player.y=0;
-            if(player.y>canvas.height)
-                player.y=canvas.height;
+            if (player.x < 0)
+                player.x = 0;
+            if (player.x > canvas.width)
+                player.x = canvas.width;
+            if (player.y < 0)
+                player.y = 0;
+            if (player.y > canvas.height)
+                player.y = canvas.height;
             
             if (lastPress == 1) {
                 bgColor = '#333';
