@@ -104,6 +104,7 @@
                }
            }
        }
+       ps.move(deltaTime);
    }
 
 
